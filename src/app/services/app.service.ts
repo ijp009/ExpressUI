@@ -25,10 +25,17 @@ export class EmployeeService {
     getEmployee(): Observable<any> {
         return this.http.get('http://localhost:8000/products/').pipe(map((response: Response) => {
             return response;
+        }));   
+    }
+
+    createEmployee(data: any): any {
+        return this.http.post('http://localhost:8000/products/create/', data, {
+            'headers': {
+                'Content-Type': 'application/json'
+            }
+        }).pipe(map(response => {
+            return response;
         }));
-
-
-        
     }
 
 }
