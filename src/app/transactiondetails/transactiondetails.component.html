@@ -1,0 +1,28 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<div class="container">
+    <div class="form">
+        <form>
+            <label for="card">Remaining Balance</label>
+            <input type="text" name="amount" [(ngModel)]="remainingAmount" disabled>
+        </form>
+
+        <div *ngIf="dispensedCash.length > 0">
+        <h1>Dispensed Cash</h1>
+
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let money of dispensedCash">
+                {{money.denomination}}
+                <span class="badge badge-primary badge-pill">{{money.count}}</span>
+            </li>
+        </ul>
+    </div>
+        <div class="message">
+            <a>{{message}}</a>
+        </div>
+        <a class="backlink" *ngIf="dispensedCash.length > 0" (click)="GoToLogin()"><- Back</a>
+    </div>
+</div>
+

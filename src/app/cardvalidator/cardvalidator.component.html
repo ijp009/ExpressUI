@@ -1,0 +1,20 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<div class="container">
+    <div class="form">
+        <h1>Enter your card details</h1><br>
+        <form>
+                <label for="card">Card Number</label><span *ngIf="invalidCard" class="required">{{cardNumberMessage}}</span>
+            <input type="text" name="card" [(ngModel)]="cardnumber">
+            <label for="pin">Pin</label><span *ngIf="invalidPin" class="required">{{pinMessage}}</span>
+            <input type="password" name="pin" [(ngModel)]="pin"> 
+            <input type="submit" (click)="validateCard()" name="submit" class="submit" value="Validate">
+        </form>
+
+        <div class="message" *ngIf="showMessage">
+            <a>{{message}}</a>
+        </div>
+    </div>
+</div>
